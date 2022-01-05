@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Result = ({value}) => {
+const Results = ({value}) => {
     return (
         <div className="result">
             <span>{value}</span>
@@ -9,12 +9,12 @@ const Result = ({value}) => {
     )
 }
 
-Result.propTypes = {
+Results.propTypes = {
     value: PropTypes.string.isRequired
 }
 
-Result.defaultProps = {
+Results.defaultProps = {
     value: "0"
 }
 
-export default Result 
+export default Results 
