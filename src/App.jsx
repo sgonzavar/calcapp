@@ -10,20 +10,31 @@ import Numbers from './components/Numbers'
 import './styles/App.css'
 
 const App = () => {
-    // const [text, setText] = useState();
-    // const clickHandlerFunction = (label) => {setText(label);}
+    const [stack, setStack] = useState("");
 
     return (
         <main className='react-calculator'>
-            <Results value="0" />
-            <Numbers onClickNumber={number => {console.log("number", number);}}/>
+            <Results value={stack} />
+            <Numbers 
+                onClickNumber={number => {console.log("number", number)
+                setStack(`${stack}${number}`)
+            }}/>
             <Functions 
-                onContentClear={content => {console.log("content", content)}}
-                onDelete={del => {console.log("Delete", del)}}
+                onContentClear={content => {console.log("content", content)
+                setStack('')
+            }}
+                onDelete={del => {console.log("Delete", del)
+                const newStack = stack.substring(0, stack.length - 1);
+                setStack(newStack)
+            }}
             />
             <MathOperations 
-                onClickOperation={op => {console.log("ope: ", op)}} 
-                onClickEqual={eq => {console.log("equal: ", eq)}} 
+                onClickOperation={op => {console.log("ope: ", op)
+                setStack(`${stack}${op}`)
+            }} 
+                onClickEqual={eq => {console.log("equal: ", eq)
+                setStack(`${stack}${eq}`)
+            }} 
             />
         </main>
     )
