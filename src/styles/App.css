@@ -38,6 +38,8 @@ button {
 button:hover {
   color: #e74e6b;
   border: 1px solid #ffce5c22;
+  background-color: #3e4750;
+  border-radius: 5px;
 }
 
 

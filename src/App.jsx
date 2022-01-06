@@ -20,26 +20,25 @@ const App = () => {
         <main className='react-calculator'>
             <Results value={value} />
             <Numbers 
-                onClickNumber={number => {console.log("number", number)
+                onClickNumber={number => {
                 setStack(`${stack}${number}`)
             }}/>
             <Functions 
-                onContentClear={content => {console.log("content", content)
+                onContentClear={content => {
                 setStack('')
             }}
                 onDelete={del => {
                 if (stack.length > 0) {
-                    console.log("Delete", del)
                     const newStack = stack.substring(0, stack.length - 1);
                     setStack(newStack)
                 }
             }}
             />
             <MathOperations 
-                onClickOperation={op => {console.log("ope: ", op)
+                onClickOperation={op => {
                 setStack(`${stack}${op}`)
             }} 
-                onClickEqual={eq => {console.log("equal: ", eq)
+                onClickEqual={eq => {
                 // eslint-disable-next-line no-eval
                 setStack(eval(stack).toString())
             }} 
